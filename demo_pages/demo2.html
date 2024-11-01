@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AI Emotion Detection</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Poppins", sans-serif;
+      }
+
+      /* New gradient background with sine wave effect */
+      body {
+        min-height: 100vh;
+        background: linear-gradient(120deg, #ffcc70, #9b59b6, #6dd5fa, #98fb98, #ffa07a);
+        background-size: 200% 200%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 2rem 5%;
+        position: relative;
+        overflow: hidden;
+        animation: gradientWave 10s ease infinite;
+      }
+    
+      @keyframes gradientWave {
+        0% {
+          background-position: 0% 50%;
+        }
+        50% {
+          background-position: 100% 50%;
+        }
+        100% {
+          background-position: 0% 50%;
+        }
+      }
+    
+      /* Optional: Adjust the .stardust to overlay with gradient */
+      .stardust {
+        opacity: 0.8;
+      }
+
+      .stardust {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background-image: radial-gradient(circle, white 1px, transparent 1px),
+          radial-gradient(circle, white 1px, transparent 1px),
+          radial-gradient(circle, white 1px, transparent 1px),
+          radial-gradient(circle, white 1px, transparent 1px);
+        background-size: 50px 50px;
+        animation: starFlow 10s linear infinite;
+      }
+
+
+      @keyframes starFlow {
+        0%,
+        100% {
+          transform: translateX(0) translateY(0);
+          opacity: 0.3;
+        }
+        25% {
+          transform: translateX(20px) translateY(-20px);
+          opacity: 0.6;
+        }
+        50% {
+          transform: translateX(0) translateY(-40px);
+          opacity: 0.8;
+        }
+        75% {
+          transform: translateX(-20px) translateY(-20px);
+          opacity: 0.6;
+        }
+      }
+
+      .star {
+        position: absolute;
+        width: 2px;
+        height: 2px;
+        background-color: white;
+        border-radius: 50%;
+        animation: starTwinkle 0.1s infinite;
+      }
+
+      .glass-card {
+        background: rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(10px);
+        border-radius: 20px;
+        padding: 2rem;
+        box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1),
+          0 0 20px rgba(255, 255, 255, 0.1);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        z-index: 2;
+        transition: all 0.3s ease;
+        width: 90%;
+        max-width: 400px;
+        height: auto;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        text-align: center;
+      }
+
+      .glass-card:hover {
+        box-shadow: 0 8px 40px rgba(0, 0, 0, 0.2),
+          0 0 30px rgba(255, 255, 255, 0.2);
+        transform: translateY(-5px);
+      }
+
+      h2 {
+        color: #fff;
+        margin-bottom: 1.5rem;
+        font-size: 2rem;
+        font-weight: 600;
+        text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+        text-align: center;
+      }
+
+
+      .upload-section {
+        margin: 2rem 0;
+      }
+
+      .file-input {
+        display: none;
+      }
+
+      .upload-btn,
+      .submit-btn,
+      .live-btn {
+        background: linear-gradient(45deg, #ff6b6b, #4d96ff);
+        color: #fff;
+        padding: 12px 24px;
+        border: none;
+        border-radius: 50px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        margin: 10px;
+        font-size: 1.1rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+      }
+
+      .upload-btn:hover,
+      .submit-btn:hover,
+      .live-btn:hover {
+        transform: translateY(-3px) scale(1.05);
+        box-shadow: 0 5px 15px rgba(255, 255, 255, 0.3);
+      }
+
+      #file-name {
+        margin-top: 1rem;
+        font-size: 1rem;
+        color: rgba(255, 255, 255, 0.7);
+      }
+
+      .divider {
+        height: 2px;
+        background: linear-gradient(90deg, transparent, #fff, transparent);
+        margin: 2rem 0;
+      }
+
+      /* Responsive styles */
+      @media (max-width: 600px) {
+        .glass-card {
+          width: 100%;
+          height: auto;
+          padding: 1.5rem;
+        }
+
+        h2 {
+          font-size: 1.8rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="stardust"></div>
+    <div class="glass-card">
+      <h2>AI Emotion Detection</h2>
+      <div class="upload-section">
+        <label for="file-input" class="upload-btn">Upload Image</label>
+        <input type="file" id="file-input" class="file-input" />
+        <div id="file-name"></div>
+      </div>
+      <button class="submit-btn">Detect Emotion</button>
+      <div class="divider"></div>
+      <button class="live-btn">Live Emotion Detection</button>
+    </div>
+  </body>
+</html>
+
