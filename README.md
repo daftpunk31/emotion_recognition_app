@@ -1,3 +1,5 @@
+To run this code, do the following:
+
 1) Clone this repo into your venv
 
 2) In your terminal activate your venv
