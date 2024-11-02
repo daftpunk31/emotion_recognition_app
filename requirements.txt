@@ -6,3 +6,4 @@ numpy
 tensorflow
 deepface
 tf-keras
+Gunicorn
