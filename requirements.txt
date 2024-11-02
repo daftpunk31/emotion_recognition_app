@@ -5,3 +5,4 @@ pillow
 numpy
 tensorflow
 deepface
+tf-keras
